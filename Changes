@@ -1,0 +1,23 @@
+Revision history for WWW-Pastebin-PastebinCom-API
+
+0.003   2013-10-29
+        - Fixed a broken test
+
+0.002   2013-10-28
+        - Added the "Getting A Users Information And Settings" API
+          feature that I somehow managed to miss the first time around.
+        - Fixed t/kwalitee.t to run only with RELEASE_TESTING
+        - Added examples/get_user_info.pl
+        - Fixed a bug where the user of the module would get strange
+          and confusing errors if they forgot to get a user key or
+          provide an API key
+        - Updated the docs to mention that
+          WWW::Pastebin::PastebinCom::Retrieve provides a more
+          featureful paste grab--relying on HTML parsing-- that
+          pastebin's API doesn't (what would I likely want to know:
+          user's settings or the expiry of the paste? The former is in
+          the API the latter isn't... logic for you ~_~)
+
+0.001   2013-10-26
+        - First version, released on an unsuspecting world.
+
