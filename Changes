@@ -1,6 +1,6 @@
 Revision history for WWW-Pastebin-PastebinCom-API
 
-1.001   2014-10-26
+1.001001   2014-10-26
         - Updated the module to reflect changes on pastebin.com
         - list_trends no longer has `format_short` and `format_long`
         - Fixed broken tests
