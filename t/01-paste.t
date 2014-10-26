@@ -77,10 +77,11 @@ sub test_list_trendy_pastes {
         $all_items_are_hashrefs,
         $all_hashrefs_have_proper_keys,
     ) = (1, 1);
+
     for ( @$list ) {
         if ( ref eq 'HASH' ) {
             for my $key ( qw/key  url  title  date  expire_date
-                format_short format_long  size  hits/
+                size  hits/
             ) {
                 $all_hashrefs_have_proper_keys = 0
                     unless exists $_->{ $key }

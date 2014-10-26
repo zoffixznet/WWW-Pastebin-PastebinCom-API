@@ -2,7 +2,9 @@ package WWW::Pastebin::PastebinCom::API;
 
 use strict;
 use warnings;
-our $VERSION = '0.003';
+
+# VERSION
+
 use LWP::UserAgent;
 use Carp;
 use HTTP::Cookies;
@@ -400,7 +402,7 @@ sub _prepare_optional_api_options {
                     . ' documentation.'
             );
 
-        push @out_args, 
+        push @out_args,
             api_paste_private => 2,
             api_user_key => ( $args->{user_key} || $self->user_key );
     }
@@ -428,7 +430,7 @@ sub _translate_expiry {
         # 10 Minutes
         '10m'   => '10M',
         m10     => '10M',
-        asap    => '10M', 
+        asap    => '10M',
 
         # 1 Hour
         h       => '1H',
@@ -856,7 +858,7 @@ C<a3767061e0e64fef6c266126f7e588f4>.
         timeout => 60,
     );
 
-    # no API key and setting scustom UA 
+    # no API key and setting scustom UA
     my $bin = WWW::Pastebin::PastebinCom::API->new(
         ua => LWP::UserAgent->new(
             timeout => $args{timeout},
@@ -992,7 +994,7 @@ returns a user key (e.g. C<4fd751dc94f0b62c489b2c7720e0d240>).
 B<On failure returns> either C<undef> or an empty list, depending
 on the context, and C<< ->error() >> method will contain
 human-readable description of the error. Note that
-if C<< ->get_user_key() >> fails, then 
+if C<< ->get_user_key() >> fails, then
 C<< ->user_key() >> will be undefined, even if it was set
 to something prior to the call of C<< ->get_user_key() >>
 
@@ -1549,8 +1551,9 @@ error message. B<On success> returns an arrayref
 or a list (depending on context) of hashrefs, where each hashref
 represents information about a single paste. The format
 of the hashref is the same as for hashrefs returned by the
-C<< ->list_user_pastes() >> method (see above). The only exception
-is that C<private> key will not be there.
+C<< ->list_user_pastes() >> method (see above), except that
+that C<private>, C<format_short>, and C<format_long> keys
+will not be there.
 
 =head2 C<get_user_info>
 
@@ -1655,7 +1658,7 @@ you can possibly get here are these:
     1D = 1 Day
     1W = 1 Week
     2W = 2 Weeks
-    1M = 1 Month 
+    1M = 1 Month
 
 =head3 C<account_type>
 
@@ -1705,7 +1708,7 @@ interpolate the value of C<< ->error() >> instead, if an error is set.
     my $bin = WWW::Pastebin::PastebinCom::API->new;
 
     $bin->api_key('a3767061e0e64fef6c266126f7e588f4');
-    printf "Current API key is %s\n", $bin->api_key; 
+    printf "Current API key is %s\n", $bin->api_key;
 
 B<Takes> one optional argument as a string, which is a pastebin.com's
 API key to be used by the module. B<Returns> the currently used
