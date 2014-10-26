@@ -209,7 +209,7 @@ sub get_paste {
 
     if ( defined $login and defined $pass ) {
         $self->_ua->cookie_jar( HTTP::Cookies->new );
-        my $res = $self->_ua->post(
+        $self->_ua->post(
             'http://pastebin.com/login.php', {
                 submit_hidden   => 'submit_hidden',
                 user_name       => $login,
@@ -704,6 +704,8 @@ __END__
 
 =encoding utf8
 
+=for stopwords AnnoCPAN RT YpTmWJG  pastebin.com  pastebin.com.  pastebin .com com tradename
+
 =head1 NAME
 
 WWW::Pastebin::PastebinCom::API - implementation of pastebin.com API
@@ -724,7 +726,7 @@ WWW::Pastebin::PastebinCom::API - implementation of pastebin.com API
 
     ##### Private paste with all optional args set
 
-    my $bin = WWW::Pastebin::PastebinCom::API->new(
+    $bin = WWW::Pastebin::PastebinCom::API->new(
         api_key => 'a3767061e0e64fef6c266126f7e588f4',
     );
 
@@ -747,14 +749,14 @@ WWW::Pastebin::PastebinCom::API - implementation of pastebin.com API
 
     ##### Retrieve the content of an existing paste
 
-    my $bin = WWW::Pastebin::PastebinCom::API->new;
+    $bin = WWW::Pastebin::PastebinCom::API->new;
     print $bin->get_paste('http://pastebin.com/YpTmWJG6')
         || die "$bin";
 
 
     ##### Delete one of user's private pastes
 
-    my $bin = WWW::Pastebin::PastebinCom::API->new(
+    $bin = WWW::Pastebin::PastebinCom::API->new(
         api_key => 'a3767061e0e64fef6c266126f7e588f4',
     );
 
@@ -769,7 +771,7 @@ WWW::Pastebin::PastebinCom::API - implementation of pastebin.com API
 
     ##### List trending pastes
 
-    my $bin = WWW::Pastebin::PastebinCom::API->new(
+    $bin = WWW::Pastebin::PastebinCom::API->new(
         api_key => 'a3767061e0e64fef6c266126f7e588f4',
     );
 
@@ -782,7 +784,7 @@ WWW::Pastebin::PastebinCom::API - implementation of pastebin.com API
 
     ##### List user's private pastes
 
-    my $bin = WWW::Pastebin::PastebinCom::API->new(
+    $bin = WWW::Pastebin::PastebinCom::API->new(
         api_key => 'a3767061e0e64fef6c266126f7e588f4',
     );
 
@@ -800,7 +802,7 @@ WWW::Pastebin::PastebinCom::API - implementation of pastebin.com API
 
     ##### List user's info
 
-    my $bin = WWW::Pastebin::PastebinCom::API->new(
+    $bin = WWW::Pastebin::PastebinCom::API->new(
         api_key => 'a3767061e0e64fef6c266126f7e588f4',
     );
 
@@ -1439,7 +1441,7 @@ maximum number of pastes to retrieve. B<By default> will get
 at most 50 pastes. B<On failure> returns either
 C<undef> or an empty list, depending on the context, and the
 C<< ->error() >> accessor method will contain human-readable
-error message. B<On success> returns a—possibly empty—arrayref
+error message. B<On success> returns a — possibly empty — arrayref
 or a list (depending on context) of hashrefs, where each hashref
 represents information about a single paste. The format
 of the hashref is this:

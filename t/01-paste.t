@@ -72,7 +72,7 @@ sub test_list_trendy_pastes {
     my $list = $bin->list_trends
         or skip "Error while getting trendy paste list: $bin", 3;
 
-    ok( ~~@$list, 'Got some trendy pastes' );
+    ok( scalar(@$list), 'Got some trendy pastes' );
     my (
         $all_items_are_hashrefs,
         $all_hashrefs_have_proper_keys,
@@ -107,7 +107,7 @@ sub test_list_user_pastes {
     my $list = $bin->list_user_pastes
         or skip "Error while getting user paste list: $bin", 4;
 
-    ok( ~~@$list, 'Got some user pastes' );
+    ok( scalar(@$list), 'Got some user pastes' );
     my (
         $found_the_paste_we_created,
         $all_items_are_hashrefs,
