@@ -394,6 +394,18 @@ sub _prepare_optional_api_options {
         push @out_args, api_paste_format => $args->{format};
     }
 
+    if( $args->{owned} && !$args->{private} ) {
+        defined ( $args->{user_key} || $self->user_key )
+            or return $self->set_error(
+                'API user key must be provided to create owned pastes.'
+                    . ' See ->user_key() or ->get_user_key() in the'
+                    . ' documentation.'
+            );
+
+            push @out_args,
+                api_user_key => ( $args->{user_key} || $self->user_key );
+    }
+
     if ( $args->{private} ) {
         defined ( $args->{user_key} || $self->user_key )
             or return $self->_set_error(
