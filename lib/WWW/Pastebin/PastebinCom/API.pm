@@ -422,6 +422,10 @@ sub _prepare_optional_api_options {
         push @out_args, api_paste_private => 1;
     }
     else {
+        ### DEBUGGING NOTE:
+        ### Pastebin will automatically list duplicate content
+        ### or content with "some" keywords as unlisted
+        ### even if we tell it to go public
         push @out_args, api_paste_private => 0;
     }
 
