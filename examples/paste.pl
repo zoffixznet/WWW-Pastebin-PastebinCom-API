@@ -2,6 +2,9 @@
 
 use strict;
 use warnings;
+
+# VERSION
+
 use lib qw(../lib lib);
 use WWW::Pastebin::PastebinCom::API;
 
