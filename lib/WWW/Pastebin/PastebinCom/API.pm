@@ -1382,6 +1382,10 @@ the behaviour is undefined. B<By default> neither
 C<unlisted> nor C<private> are specified and the created
 paste is public and listed.
 
+I<Note:> Pastebin will automatically list duplicate content
+or content with some keywords as unlisted,
+even if we tell it to go public. It's not a bug in the module.
+
 =head3 C<owned>
 
     $bin->get_user_key(qw/
