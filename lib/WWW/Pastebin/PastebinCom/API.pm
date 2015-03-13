@@ -1378,6 +1378,30 @@ the behaviour is undefined. B<By default> neither
 C<unlisted> nor C<private> are specified and the created
 paste is public and listed.
 
+=head3 C<owned>
+
+    $bin->get_user_key(qw/
+        your_pastebin.com_login
+        your_pastebin.com_password
+    /) or die "$bin";
+
+    print $bin->paste( 'Stuff to paste', owned => 1, )
+        || die "$bin";
+
+B<Optional.> B<Takes> a true or false value.
+B<When set to>
+a true value, will cause the paste you create to be labeled as
+pasted by you instead of C<Guest>.
+B<By default> is set to false and pastes will be labeled
+as created by C<Guest>.
+
+When creating an "owned"
+paste, C<< ->user_key() >>
+accessor method must contain a user key for the user who will own
+this paste. You can either set it directly using C<< ->user_key() >>,
+set it in the constructor using C<user_key> argument, or set it
+indirectly by calling C<< ->get_user_key() >> method.
+
 =head3 C<private>
 
     $bin->get_user_key(qw/
@@ -1397,7 +1421,7 @@ the behaviour is undefined. B<By default> neither
 C<unlisted> nor C<private> are specified and the created
 paste is public and listed.
 
-When creating a private
+When creating a private or "owned"
 paste, C<< ->user_key() >>
 accessor method must contain a user key for the user who will own
 this paste. You can either set it directly using C<< ->user_key() >>,
