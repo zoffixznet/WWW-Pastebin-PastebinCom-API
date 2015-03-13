@@ -1768,6 +1768,10 @@ scripts: one for pasting a file and another for retrieving a paste.
 
 Zoffix Znet, C<< <cpan at zoffix.com> >>
 
+=head1 CONTRIBUTORS
+
+Philipp Hamer, L<https://github.com/ponzellus>
+
 =head1 BUGS
 
 Please report any bugs or feature requests to C<bug-www-pastebin-pastebincom-api at rt.cpan.org>, or through
