@@ -3,7 +3,7 @@ Revision history for WWW-Pastebin-PastebinCom-API
 1.001003   2015-12-06
         - Re-upload to fix reset pass/fail counters, because fails
           were not due to the module, but due to pastebin.com API
-          being broken for a few days.
+          being broken for a few days. (#2)
 
 1.001002   2015-03-13
         - Added 'owned' argument to ->paste()
