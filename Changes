@@ -1,5 +1,8 @@
 Revision history for WWW-Pastebin-PastebinCom-API
 
+1.001004   2016-12-26
+        - Add META.json (ambs)
+
 1.001003   2015-12-06
         - Re-upload to fix reset pass/fail counters, because fails
           were not due to the module, but due to pastebin.com API
